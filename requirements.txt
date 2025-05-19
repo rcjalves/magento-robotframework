@@ -1,0 +1,5 @@
+robotframework
+robotframework-seleniumlibrary
+selenium==4.0.0
+Faker==13.3.4
+pytest
