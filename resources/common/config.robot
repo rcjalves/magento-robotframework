@@ -14,17 +14,13 @@ ${TEST_PASSWORD}  Senha@1234
 
 *** Keywords ***
 Open Browser To Home Page
-    [Documentation]    Abre o navegador e acessa a página inicial
     ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
-    Run Keyword If    ${HEADLESS}    Run Keywords
-    ...    Call Method    ${chrome_options}    add_argument    --headless=new    AND
-    ...    Call Method    ${chrome_options}    add_argument    --no-sandbox    AND
-    ...    Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage    AND
-    ...    Call Method    ${chrome_options}    add_argument    --window-size\=1920,1080
-
+    Call Method    ${chrome_options}    add_argument    --headless=new
+    Call Method    ${chrome_options}    add_argument    --no-sandbox
+    Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${chrome_options}    add_argument    --window-size\=1920,1080
     Create Webdriver    Chrome    options=${chrome_options}
     Go To    ${URL}
-    Run Keyword Unless    ${HEADLESS}    Maximize Browser Window
     Set Selenium Implicit Wait    ${TIMEOUT}
     Wait Until Page Contains    Hot Sellers
 
