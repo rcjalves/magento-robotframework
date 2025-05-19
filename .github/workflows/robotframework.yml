@@ -28,7 +28,7 @@ jobs:
       - name: Install Python dependencies
         run: |
           pip install --upgrade pip
-          pip install robotframework selenium robotframework-seleniumlibrary
+          pip install robotframework selenium robotframework-seleniumlibrary webdrivermanager
 
       - name: Install Chrome and ChromeDriver
         run: |
@@ -37,20 +37,10 @@ jobs:
           echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
-
-          # Get Chrome version
-          CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
-          echo "Chrome version: $CHROME_VERSION"
-
-          # Install matching ChromeDriver
-          CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
-          echo "ChromeDriver version: $CHROMEDRIVER_VERSION"
-          wget -q "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
-          sudo chmod +x /usr/local/bin/chromedriver
-          rm chromedriver_linux64.zip
-
+          
+          # Install ChromeDriver using webdrivermanager (que irá detectar a versão correta)
+          python -m webdrivermanager chrome --linkpath /usr/local/bin
+          
           # Verify installations
           google-chrome --version
           chromedriver --version
@@ -66,9 +56,9 @@ jobs:
             --log log.html \
             --report report.html \
             --output output.xml \
-            tests/  # Ajuste este caminho conforme sua estrutura de diretórios
+            tests/
           
-          # Gerar relatório consolidado
+          # Generate consolidated report
           rebot --outputdir results results/output.xml
 
       - name: Archive test results
