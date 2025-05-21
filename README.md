@@ -11,7 +11,6 @@
     <li>🧱 Estrutura modular por casos, páginas e utilitários</li>
     <li>📸 Captura automática de screenshots</li>
     <li>🖥️ Suporte a browsers como Chrome e Chromium</li>
-    <li>⚙️ CI/CD configurado com GitHub Actions</li>
     <li>📊 Geração de relatórios de execução HTML</li>
   </ul>
 
@@ -21,7 +20,6 @@
     <li>🤖 Robot Framework</li>
     <li>🌐 SeleniumLibrary</li>
     <li>🧪 WebDrivers (Chrome/Chromium)</li>
-    <li>☁️ GitHub Actions</li>
   </ul>
 
 <h2>📋 Como Executar os Testes</h2>
@@ -53,13 +51,6 @@ results/log.html</code></pre>
     <li>🔍 <code>--variable</code>: Permite passar variáveis personalizadas (ex: browser)</li>
   </ul>
 
-<h3>☁️ Execução via GitHub Actions</h3>
-  <p>O workflow está configurado para ser executado automaticamente em:</p>
-  <ul>
-    <li>🚀 Push na branch <code>main</code></li>
-    <li>🔁 Pull requests para <code>main</code></li>
-  </ul>
-
   <p>Também é possível executar manualmente:</p>
   <ol>
     <li>Acesse a aba <strong>Actions</strong> no repositório</li>
@@ -68,8 +59,7 @@ results/log.html</code></pre>
   </ol>
 
 <h2>📦 Estrutura do Projeto</h2>
-  <pre><code>├── .github/workflows         
-├── pages/                
+  <pre><code>├── pages/                
 │   ├── contaPage.robot
 │   └── encartePage.robot
 │   ├── enderecoPage.robot
@@ -104,7 +94,6 @@ results/log.html</code></pre>
   <ul>
     <li>✅ Testes modulares e reutilizáveis</li>
     <li>🧹 Estrutura clara com separação por responsabilidades</li>
-    <li>⚙️ CI/CD pronto para ambientes de produção</li>
   </ul>
 
 </body>
