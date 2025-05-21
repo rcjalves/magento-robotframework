@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <body>
 
-  <h1>🤖 Robot Framework - Automação de Testes</h1>
+  <h1>🤖 Projeto Magento - Testes Automatizados</h1>
   <p>Este projeto contém a automação de testes de interface utilizando o <strong>Robot Framework</strong> com <strong>SeleniumLibrary</strong>, estruturado para promover reutilização, legibilidade e integração contínua via <strong>GitHub Actions</strong>.</p>
 
 <h2>🚀 Recursos Principais</h2>
